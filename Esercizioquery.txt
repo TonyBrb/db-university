@@ -1,0 +1,56 @@
+SELECT 
+
+1. SELECT *
+   FROM `students`
+   WHERE `date_of_birth` LIKE '1990-%';
+
+2. SELECT *
+   FROM `courses`
+   WHERE `cfu` >'10';
+
+3. SELECT *
+   FROM `students`
+   WHERE `date_of_birth` < '1991-01-11';
+ 
+4. SELECT `period`, `year`
+   FROM `courses`
+   WHERE `period` LIKE 'I semestre' 
+   AND `year` LIKE '1';
+
+5. SELECT *
+   FROM `exams`
+   WHERE `date` LIKE '2020-06-20'
+   AND `hour` > '14:00:00';
+
+6. SELECT *
+   FROM `degrees`
+   WHERE `level` like 'magistrale';
+
+7. SELECT COUNT(*) AS `totale`
+   FROM `departments`;
+
+8. SELECT COUNT(*) AS `totale`
+   FROM `teachers`
+   WHERE `phone` IS null;
+
+
+GROUP BY
+
+1.SELECT COUNT(*) as `totale`
+  FROM `students`
+  WHERE `enrolment_date`
+  GROUP BY YEAR(`enrolment_date`);
+
+
+2. SELECT COUNT(`office_address`) AS `totali`, office_address AS `Indirizzo`
+   FROM `teachers`
+   GROUP BY `office_address`;
+
+
+3. SELECT AVG(`vote`) AS `totali`, `exam_id` AS `esame_id`
+   FROM `exam_student`
+   GROUP BY `exam_id`;
+
+4. SELECT COUNT(*), `department_id` AS `dipartimento`
+   FROM `degrees`
+   GROUP BY `department_id`
